@@ -1,0 +1,15 @@
+/node_modules
+backend/public/hot
+backend/public/storage
+backend/storage/*.key
+backend/vendor
+/.idea
+/.vagrant
+backend/Homestead.json
+backend/Homestead.yaml
+backend/npm-debug.log
+backend/yarn-error.log
+backend/.env
+backend/composer.lock
+backend/storage/api-docs/api-docs.json
+backend/release.txt

@@ -6,6 +6,8 @@ return [
 
     'x_header_cache_time' => 'x-cache-result-time',
 
+    'key_crypt' => 'test@2020%$#',
+
     'url_secure' => env('URL_SECURE', 0),
 
     'url_api_endpoint' => env('URL_API_ENDPOINT', 'http://127.0.0.1:8000/'),
@@ -177,8 +179,7 @@ return [
         /*
          * Package Service Providers...
          */
-        \Danganf\LaravelDefaultServiceProvider::class,
-        \Danganf\SessionOpenServiceProvider::class,
+        
         /*
          * Application Service Providers...
          */

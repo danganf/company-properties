@@ -2,17 +2,19 @@
 
 namespace App\MyClass\Json;
 
+use App\Models\Properties;
 use DanganfTools\MyClass\Json\Contracts\JsonAbstract;
 use DanganfTools\MyClass\Json\Contracts\JsonInterface;
 use DanganfTools\MyClass\Validator;
 
-class Auth extends JsonAbstract implements JsonInterface
+class PropertiesCreate extends JsonAbstract implements JsonInterface
 {
-    private $validator;
+    protected $validator, $status;
 
-    public function __construct(Validator $validator)
+    public function __construct(Validator $validator, Properties $properties)
     {
         $this->validator = $validator;
+        $this->status = implode(',',array_keys($properties::STATUS));
     }
 
     public function set( $stringJson ) {
@@ -26,11 +28,15 @@ class Auth extends JsonAbstract implements JsonInterface
     public function validRequiredFields( $array ) {
         $this->trataDados();
         $array  = $this->toArray();
-        $fields = [ 'login', "password" ];
+        $fields = [ 'code', "title", "price", "action" ];
+
+        $this->validator->setRule('action', 'required|in:'.$this->status);
 
         if ( !$this->validator->valid( $array, $fields ) ) {
             $this->error( $this->validator->error() );
         }
+
+        $this->create('price', (float) $this->get('price') );
 
         return TRUE;
     }

@@ -55,6 +55,12 @@ class Response
         $this->code500();
         return $this->render(\Lang::get('default.internal_server_error'),$e->getMessage());
     }
+    
+    private function BindingResolutionException(\Exception $e){
+        $this->setError();
+        $this->code500();
+        return $this->render(\Lang::get('default.internal_server_error'),$e->getMessage());
+    }
 
     private function FatalThrowableError(\Exception $e){
         return $this->InvalidArgumentException($e);

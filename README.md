@@ -10,10 +10,11 @@ Ambiente construindo utilizando container, via docker.
 
 > Laravel 6.2
 
-O repositório contem duas pastas: `backend` e `frontend`, onde cada uma tem isolado os respectivos códigos.
+O repositório contém duas pastas: `backend` e `frontend`, onde cada uma tem isolado os respectivos códigos.
+
 Logo abaixo tem os passos para subir cada uma das aplicações.
 
-Será necessário abrir duas janelas do terminal, uma em cada basta: frontend e backend.
+Será necessário abrir duas janelas do terminal, uma em cada respectiva pasta: frontend e backend.
 
 ## Setup initial BACKEND
 
@@ -36,7 +37,7 @@ Lembre-se que o usuário necessitará de acessos *root* para criar as tabelas.
 
 > php artisan migrate
 
-Se ocorreu tudo bem, as tabelas foram criadas no banco definido no `config/database.php`.
+Se ocorreu tudo bem, as tabelas foram criadas no banco definido.
 
 Agora, execute o comando abaixo para criar o registros de acesso padrão.
 
@@ -49,7 +50,7 @@ Feito isso, execute o seguinte comando para subir o backend:
 
 ## Setup initial FRONTEND
 
-Agora, abra uma nova janela... Tomando o cuidado para que o ultimo comando ainda continue rodando
+Agora, abra uma nova janela... Tome o cuidado para que o último comando ainda continue rodando
 
 Execute os seguintes passos abaixo, em um console, após clonar esse repositório:
 
@@ -63,7 +64,7 @@ Execute os seguintes passos abaixo, em um console, após clonar esse repositóri
 
 > php artisan cache:clear
 
-Agora, dentro da pasta `config/app.php` tem a configuração `url_api_endpoint` com o valor setado `http://127.0.0.1:8081/`
+Agora, dentro da pasta `config/app.php`, tem a configuração `url_api_endpoint` com o valor setado `http://127.0.0.1:8081/`
 
 Esse valor corresponde ao endereço do backend levantado na etapa de backend. Confirme se o endereço corresponde (a `/` no final é super importante).
 
@@ -77,7 +78,7 @@ Feito isso, rode o comando:
 
 > php artisan serve
 
-Agora vá ao navegador e acesso o sistema pela url gerada no comando anterior, utilizando as seguintes credências de acesso:
+Agora vá ao navegador e acesse o sistema pela url gerada no comando anterior, utilizando as seguintes credências de acesso:
 
 > **login:** admin@admin.com
 

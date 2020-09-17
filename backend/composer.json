@@ -11,6 +11,7 @@
         "jansenfelipe/faker-br": "^1.0",
         "laravel/framework": "6.2.*",
         "laravel/tinker": "~2.0",
+        "laravel/helpers": "^1.3",
         "zircote/swagger-php": "2.*",
         "danganf/core-tools": "dev-master"
     },

@@ -16,10 +16,8 @@ class Properties extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('code',20)->comment('Código do imovel')->unique();
             $table->string('title',80)->comment('Titulo do imovel');
-            $table->decimal('price',10,2)->comment('Valor do imovel');
-            $table->enum('action',['available','sold','rented','unavailable'])->index();
+            $table->integer('total')->comment('Total de números');
             $table->timestamps();
         });
     }

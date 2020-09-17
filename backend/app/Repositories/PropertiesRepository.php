@@ -12,27 +12,6 @@ class PropertiesRepository extends RepositoryAbstract
         parent::__construct( __CLASS__ );
     }
 
-    public function patchUpdate( JsonAbstract $json, $id=null ){
-
-        $this->find($id);
-        if($this->fails()){
-            $this->setMsgError( \Lang::get('default.register_not_exist') );
-            return false;
-        }
-
-        try{
-            foreach($json->toArray() as $key => $value){
-                $this->set( $key, $value);
-            }
-            $this->save();
-        } catch ( \Exception $e ){
-            $this->setMsgError( $e->getMessage() );
-        }
-
-        $this->save();
-
-    }
-
     public function createOrUpdate(JsonAbstract $json, $id=null)
     {        
         if( !empty( $id ) ){
@@ -42,35 +21,18 @@ class PropertiesRepository extends RepositoryAbstract
                 return false;
             }        
         }
-
-        $where = "code='{$json->get('code')}'";
-        $where .= empty( $id ) ? '' : " and id!='$id'";
-
-        //VERIFY UNIQUE KEY CODE EXIST
-        if( empty( $this->setWhere($where)->setFields('id')->first() ) ){
         
-            $this->set('code', $json->get('code'));
-            $this->set('title', $json->get('title'));
-            $this->set('price', $json->get('price'));
-            $this->set('action', $json->get('action'));
+        $this->set('title', $json->get('title'));
+        $this->set('total', $json->get('total'));
 
-            try{
-                $this->save();              
-                return [
-                    'id' => $this->getModel()->id,
-                    'code' => $this->getModel()->code,
-                    'created_at' => $this->getModel()->created_at,
-                ];
-    
-            } catch ( \Exception $e ){
-                $this->setMsgError( $e->getMessage() );
-            }            
-
-        } else {
-            $this->setMsgError( \Lang::get('default.code_found') );
+        try{
+            $this->save();              
+            return $this->toArray();
+        } catch ( \Exception $e ){
+            $this->setMsgError( $e->getMessage() );
         }
 
         return false;
 
-    }    
+    }
 }

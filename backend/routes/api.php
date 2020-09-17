@@ -22,11 +22,11 @@ Route::middleware(['api'])->group(function () {
     Route::get('/', 'MainController@main' )->name('main');    
     Route::match(['POST', 'OPTIONS'], '/auth', 'MainController@auth' )->middleware('check.json')->name('auth');
     
-    Route::prefix('properties')->name('properties.')->group(function () {
+    Route::prefix('properties')->name('properties.')->group(function () {        
         Route::post('/', 'PropertiesController@create' )->middleware('check.json')->name('create');
         Route::put('/{id}', 'PropertiesController@create' )->middleware('check.json')->name('update');
-        Route::patch('/{id}', 'PropertiesController@patch' )->middleware('check.json')->name('patch');
         Route::delete('/{id}', 'PropertiesController@delete' )->name('delete');
+        Route::get('/', 'PropertiesController@list' )->name('list');
     });
 
 });

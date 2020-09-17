@@ -2,19 +2,17 @@
 
 namespace App\MyClass\Json;
 
-use App\Models\Properties;
 use DanganfTools\MyClass\Json\Contracts\JsonAbstract;
 use DanganfTools\MyClass\Json\Contracts\JsonInterface;
 use DanganfTools\MyClass\Validator;
 
 class PropertiesCreate extends JsonAbstract implements JsonInterface
 {
-    protected $validator, $status;
+    protected $validator;
 
-    public function __construct(Validator $validator, Properties $properties)
+    public function __construct(Validator $validator)
     {
         $this->validator = $validator;
-        $this->status = implode(',',array_keys($properties::STATUS));
     }
 
     public function set( $stringJson ) {
@@ -28,15 +26,13 @@ class PropertiesCreate extends JsonAbstract implements JsonInterface
     public function validRequiredFields( $array ) {
         $this->trataDados();
         $array  = $this->toArray();
-        $fields = [ 'code', "title", "price", "action" ];
-
-        $this->validator->setRule('action', 'required|in:'.$this->status);
+        $fields = [ 'title', 'total' ];
 
         if ( !$this->validator->valid( $array, $fields ) ) {
             $this->error( $this->validator->error() );
         }
 
-        $this->create('price', (float) $this->get('price') );
+        $this->create( 'total', only_number( $this->get('total') ) );
 
         return TRUE;
     }

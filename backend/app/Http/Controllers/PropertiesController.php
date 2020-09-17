@@ -7,16 +7,14 @@ use Illuminate\Http\Request;
 
 class PropertiesController extends Controller
 {
-    public function create( $id=null, Request $request, PropertiesRepository $propertiesRepository ){
-        $propertiesRepository->createOrUpdate( $request->get('json'), $id );
-        if( !$propertiesRepository->getMsgError() ){
-            return msgSuccessJson('OK');
-        }
-        return msgErroJson($propertiesRepository->getMsgError());
+    public function list(PropertiesRepository $propertiesRepository ){
+        return msgJson( 
+            $propertiesRepository->setFields('id, title, total, created_at')->search() 
+        );
     }
     
-    public function patch ( $id, Request $request, PropertiesRepository $propertiesRepository ){
-        $propertiesRepository->patchUpdate( $request->get('json'), $id );
+    public function create( $id=null, Request $request, PropertiesRepository $propertiesRepository ){
+        $propertiesRepository->createOrUpdate( $request->get('json'), $id );
         if( !$propertiesRepository->getMsgError() ){
             return msgSuccessJson('OK');
         }

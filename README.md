@@ -47,6 +47,15 @@ Feito isso, execute o seguinte comando para subir o backend:
 
 > php artisan serve --port=8081
 
+## Documentação das APIS
+
+O sistema foi construindo separando front-end e back-end, mesmo que ambos esteja
+no mesmo repositório. 
+
+Foi criado uma abstração que facilitará essa separação no futuro. 
+A abstração foi feita em cima da classe: *App\MyClass\FactoryApis*
+
+Url da documentação: `_DNS_BACKEND_/api/documentation`
 
 ## Setup initial FRONTEND
 

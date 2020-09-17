@@ -1,5 +1,14 @@
 <?php
 /**
+ * 
+ * @SWG\get(
+ *   path="properties",
+ *   summary="List Properties",
+ *   operationId="properties-list",
+ *   tags={"Properties"},
+ *   @SWG\Response(response=200, description="successful operation"),
+ * )
+ * 
  * @SWG\Post(
  *   path="properties",
  *   summary="Created properties",

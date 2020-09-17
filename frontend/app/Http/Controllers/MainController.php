@@ -21,7 +21,7 @@ class MainController extends Controller
     }
 
     public function index(){
-        $this->subtitle = 'Estatísticas do dia';
-        return $this->openView();
+        $this->subtitle = 'Estatísticas';
+        return view('pages.main.index');
     }
 }

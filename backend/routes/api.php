@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 Route::middleware(['api'])->group(function () {
     
     Route::get('/', 'MainController@main' )->name('main');    
+    Route::get('/feed', 'MainController@feed' )->name('feed');
     Route::match(['POST', 'OPTIONS'], '/auth', 'MainController@auth' )->middleware('check.json')->name('auth');
     
     Route::prefix('properties')->name('properties.')->group(function () {        

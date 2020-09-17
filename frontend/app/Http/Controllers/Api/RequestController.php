@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\MyClass\FactoryApis;
-use Danganf\MyClass\Validator;
+use DanganfTools\MyClass\Validator;
 use Illuminate\Http\Request;
 
 class RequestController extends Controller

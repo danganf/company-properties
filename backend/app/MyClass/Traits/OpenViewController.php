@@ -25,26 +25,6 @@ trait OpenViewController
             'routeName'  => camel_case(last(explode('.', $routeName)))
         ];
 
-        if( isset( $dados['routeCreate'] ) ){
-            $dados['viewData']['routeCreate'] = $dados['routeCreate'];
-        }
-
-        /*if( isset( $dados['breadCrumbs'] ) ){
-            $dados['breadCrumbs'] = array_merge( [$this->title], explode('|', array_pull( $dados, 'breadCrumbs' )) );
-        }*/
-
-        if( isset( $dados['btn'] ) ){
-            $dados['btnAction'] = array_pull( $dados, 'btn' );
-        }
-
-        if( $this->title !== $textSubtitle ) {
-            $dados['breadCrumbs'][] = $this->title;
-            foreach ( $this->subtitle AS $value ) {
-                $dados['breadCrumbs'][] = $value;
-            }
-
-        }
-
         if( array_has( $dados, 'filters' ) ){
             array_pull( $dados, 'filters.company_uid' );
         }

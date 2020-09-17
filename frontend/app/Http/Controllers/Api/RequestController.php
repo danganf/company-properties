@@ -14,7 +14,10 @@ class RequestController extends Controller
         if( $validator->valid([ 'method' => strtoupper($method) ], ['method']) ){
 
             $factoryApis->setRequest($request);
-            $result =  $factoryApis->{$method}($destiny, $path);
+            if( in_array($method, ['post','put']) ){            
+                $factoryApis->setContentType('json');
+            }
+            $result = $factoryApis->{$method}($destiny, $path);
             if( empty( $factoryApis->getError() ) ){
                 return msgJson( $result );
             }

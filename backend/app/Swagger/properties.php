@@ -9,6 +9,14 @@
  *   @SWG\Response(response=200, description="successful operation"),
  * )
  * 
+ * @SWG\get(
+ *   path="properties/last",
+ *   summary="Last Properties Insert",
+ *   operationId="properties-last-insert",
+ *   tags={"Properties"},
+ *   @SWG\Response(response=200, description="successful operation"),
+ * )
+ * 
  * @SWG\Post(
  *   path="properties",
  *   summary="Created properties",

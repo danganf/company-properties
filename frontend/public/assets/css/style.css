@@ -11,7 +11,6 @@ input:focus.error, textarea:focus.error, selecr:focus.error{border:1px solid #ff
 .text-unit{opacity: 0.7;position: absolute;display: flex;}
 .form .form-control {font-weight: 600;}
 .link{color: #0c84d1 !important;cursor:pointer;}
-.nav-logo-brand{}
 .main-menu #main-menu-navigation .is-shown{max-height: 100%;}
 .i-sort{padding-left: 2px;cursor: pointer;}
 
@@ -28,13 +27,17 @@ ul.navigation-main li.nav-buttons a{color:white !important;border-radius: 0;text
 .td-padding-default{padding: 10px 0 10px 6px !important;}
 .button-no-style{background: transparent;border:none;padding: 5px 10px 5px 10px;}
 .display-none{display: none !important;}
-.paginate{width: 100% !important;}
-.page-item.disabled a{padding: 10px 4px 10px 4px;border-color: #BABFC7 !important;}
 
 .table-striped tbody tr:hover{background-color: #fff5e6 !important;}
 .bootstrap-switch-container{width: 127px !important;}
 
-.btn-title-sub-menu {display: inline-block;margin-right: 13px;margin-bottom: 5px;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;user-select: none;border: 1px solid transparent;padding: 0.5rem 1rem;font-size: 1rem;line-height: 0.25;border-radius: 1.25rem;}
+.navbar-header .logo{width: 62px;margin-top: 2px;}
+
+footer{bottom: 0;height: 90px;position: fixed;width: 100%;font-size: 2.6em;background-color: #212121 !important;color: white;}
+footer .time{border-right: 2px dotted #75788a;text-align: right;}        
+footer .logo{text-align: right;}
+footer img{width: 74px;margin-top: 0;margin-right: 10px;}
+.btn-default{background-color: #abadba;border-color: #abadba;}
 
 @media only screen and (min-width: 320px) {
     .min-desktop{display: none;}

@@ -11,30 +11,9 @@ Route::group( [ 'as' => 'auth.', 'prefix' => 'auth' ], function () {
 
 Route::group( [ 'middleware' => [ 'verify.session' ] ], function () {/*, 'dependency.files'*/
 
-    Route::get('/', 'MainController@index' )->name('main');
-
-    Route::group( [ 'as' => 'catalog.', 'prefix' => 'catalog' ], function () {
-
-        Route::get('/'          , 'CatalogController@index' )->name('index');
-        Route::get('/new'       , 'CatalogController@new' )->name('new');
-        Route::get('/edit/{sku}', 'CatalogController@edit' )->name('edit');
-
-    });
-
-    Route::group( [ 'as' => 'customer.', 'prefix' => 'customer' ], function () {
-
-        Route::get('/'         , 'CustomerController@index' )->name('index');
-        Route::get('/new'      , 'CustomerController@new' )->name('new');
-        Route::get('/edit/{id}', 'CustomerController@edit' )->name('edit');
-
-    });
-
-    Route::group( [ 'as' => 'order.', 'prefix' => 'order' ], function () {
-
-        Route::get('/'         , 'OrderController@index' )->name('index');
-        Route::get('/view/{id}', 'OrderController@edit' )->name('view');
-        Route::get('/pdv'      , 'OrderController@pdv' )->name('pdv');
-
-    });
+    Route::get('/', 'MainController@index' )->name('dashboard');
+    Route::get('/admin', 'MainController@admin' )->name('admin');
+    Route::get('/new', 'MainController@new' )->name('new');
+    Route::get('/edit/{id}', 'MainController@edit' )->name('edit');
 
 });

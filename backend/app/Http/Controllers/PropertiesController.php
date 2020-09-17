@@ -7,10 +7,17 @@ use Illuminate\Http\Request;
 
 class PropertiesController extends Controller
 {
-    public function list(PropertiesRepository $propertiesRepository ){
+    public function list($id=null, PropertiesRepository $propertiesRepository ){
+
         return msgJson( 
-            $propertiesRepository->setFields('id, title, total, created_at')->search() 
+            empty($id) 
+            ? $propertiesRepository->list() 
+            : $propertiesRepository->setFields('id, title, total, created_at')->setWhere("id=".(int)$id)->first() 
         );
+    }
+    
+    public function last($id=null, PropertiesRepository $propertiesRepository ){
+        return msgJson( $propertiesRepository->last() );
     }
     
     public function create( $id=null, Request $request, PropertiesRepository $propertiesRepository ){

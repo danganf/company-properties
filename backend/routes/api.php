@@ -27,7 +27,8 @@ Route::middleware(['api'])->group(function () {
         Route::post('/', 'PropertiesController@create' )->middleware('check.json')->name('create');
         Route::put('/{id}', 'PropertiesController@create' )->middleware('check.json')->name('update');
         Route::delete('/{id}', 'PropertiesController@delete' )->name('delete');
-        Route::get('/', 'PropertiesController@list' )->name('list');
+        Route::get('/last', 'PropertiesController@last' )->name('last');
+        Route::get('/{id?}', 'PropertiesController@list' )->name('list');
     });
 
 });
